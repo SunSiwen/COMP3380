@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="db2_db2driver_for_jdbc_sqlj">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Downloads/v11.5.6_jdbc_sqlj/jdbc_sqlj/db2_db2driver_for_jdbc_sqlj" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$USER_HOME$/Downloads/v11.5.6_jdbc_sqlj/jdbc_sqlj/db2_db2driver_for_jdbc_sqlj" recursive="false" />
+  </library>
+</component>

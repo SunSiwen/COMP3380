@@ -1,0 +1,160 @@
+select upper.user_id as customerId, upper.spend as cost, upper.zipcode as cityZipcode
+from (select sum(price) as spend, user_id, zipcode
+      from orders
+               inner join users u on orders.customer_id = u.user_id
+      where order_purchase_timestamp >= ?
+        and order_purchase_timestamp <= ?
+      group by user_id, zipcode) upper
+         inner join (select max(tmp.spend) as maxcost, zipcode
+                     from (select sum(price) as spend, user_id, zipcode
+                           from orders
+                                    inner join users u on orders.customer_id = u.user_id
+                           where order_purchase_timestamp >= ?
+                             and order_purchase_timestamp <= ?
+                           group by user_id, zipcode) tmp
+                     group by zipcode) lower on upper.spend = lower.maxcost and upper.zipcode = lower.zipcode
+order by lower.zipcode
+
+
+select upper.user_id as customerId, upper.spend as cost, upper.zipcode as cityZipcode
+from (select sum(price) as spend, user_id, zipcode
+      from orders
+               inner join users u on orders.customer_id = u.user_id
+      where order_purchase_timestamp >= ?
+        and order_purchase_timestamp <= ?
+      group by user_id, zipcode) upper
+         inner join (select avg(tmp.spend) as avgcost, zipcode
+                     from (select sum(price) as spend, user_id, zipcode
+                           from orders
+                                    inner join users u on orders.customer_id = u.user_id
+                           where order_purchase_timestamp >= ?
+                             and order_purchase_timestamp <= ?
+                           group by user_id, zipcode) tmp
+                     group by zipcode) lower on upper.spend > lower.avgcost and upper.zipcode = lower.zipcode
+order by lower.zipcode
+
+4
+select upper.ZIPCODE, upper.income, lower.spend
+from (
+         select sum(price) as income, zipcode
+         from orders
+                  inner join users u on orders.SELLER_ID = u.user_id
+         where order_purchase_timestamp >= ?
+           and order_purchase_timestamp <= ?
+         group by zipcode) upper
+         inner join(
+    select sum(price) as spend, zipcode
+    from orders
+             inner join users u on orders.customer_id = u.user_id
+    where order_purchase_timestamp >= ?
+      and order_purchase_timestamp <= ?
+    group by zipcode) lower
+                   on upper.ZIPCODE = lower.ZIPCODE
+where upper.income > lower.spend
+
+5
+select count(*)as num,pc.NAME from ORDERS o inner join (
+    select p.PRODUCTID, c.NAME
+    from PRODUCTS p
+             inner join CATEGORY c on p.CATEGORY = c.NAME
+) pc on pc.PRODUCTID = o.PRODUCT_ID group by pc.NAME order by num desc limit ?;
+
+6
+select lower.rate, upper.SELLER_ID, lower.ZIPCODE
+from (select tmp.SELLER_ID, USERS.ZIPCODE, avg(REVIEW_SCORE) as rate
+      from USERS
+               inner join (
+          select o.SELLER_ID as SELLER_ID, r.REVIEW_SCORE
+          from ORDERS o
+                   inner join REVIEWS r on o.ORDER_ID = r.ORDER_ID) tmp
+                          on USER_ID = tmp.SELLER_ID
+      group by SELLER_ID, ZIPCODE) upper
+         inner join (
+    select max(rate) as rate, res.ZIPCODE
+    from (
+             select USERS.ZIPCODE, avg(REVIEW_SCORE) as rate
+             from USERS
+                      inner join (
+                 select o.SELLER_ID as SELLER_ID, r.REVIEW_SCORE
+                 from ORDERS o
+                          inner join REVIEWS r on o.ORDER_ID = r.ORDER_ID) tmp
+                                 on USER_ID = tmp.SELLER_ID
+             group by SELLER_ID, ZIPCODE) res
+    group by res.ZIPCODE
+) lower
+                    on upper.rate = lower.rate and upper.ZIPCODE = lower.ZIPCODE
+order by ZIPCODE
+
+7
+select res.PRODUCTID, c.NAME, num
+from CATEGORY c
+         inner join (
+    select *
+    from PRODUCTS p
+             inner join (
+        select count(*) as num, PRODUCT_ID
+        from ORDERS
+        where FREIGHT_VALUE > ORDERS.PRICE
+        group by PRODUCT_ID
+    ) tmp on p.PRODUCTID = tmp.PRODUCT_ID
+) res on res.CATEGORY = c.NAME
+order by num desc limit 5
+
+8
+select *
+from (select distinct (SELLER_ID) as SELLER_ID from ORDERS) op
+where not exists(
+        select name
+        from CATEGORY c
+        except
+        (
+            select distinct (CATEGORY) as name
+            from (
+                     select o.SELLER_ID,p.CATEGORY
+                     from ORDERS o
+                              inner join PRODUCTS p on o.PRODUCT_ID = p.PRODUCTID
+                 ) tmp
+            where tmp.SELLER_ID = op.SELLER_ID
+        )
+    )
+
+
+9
+
+select SELLER_ID, count(distinct CATEGORY) as num
+from (select o.SELLER_ID, p.CATEGORY
+      from ORDERS o
+               inner join PRODUCTS p on o.PRODUCT_ID = p.PRODUCTID
+      order by SELLER_ID) tmp
+group by SELLER_ID
+order by num desc
+
+10
+
+select upper.ORDER_ID,
+       upper.distance,
+       lower.FREIGHT_VALUE                     as cost,
+       (lower.FREIGHT_VALUE / distance * 1000) as unitprice
+from (
+         select ORDER_ID,
+                round(6378.138 * 2 * asin(sqrt(sin((cla * 3.141592653 / 180 - sla * 3.141592653 / 180) / 2) *
+                                               sin((cla * 3.141592653 / 180 - sla * 3.141592653 / 180) / 2) +
+                                               cos(cla * 3.141592653 / 180) * cos(sla * 3.141592653 / 180) *
+                                               sin((cln * 3.141592653 / 180 - sln * 3.141592653 / 180) / 2) *
+                                               sin((cln * 3.141592653 / 180 - sln * 3.141592653 / 180) / 2))) *
+                      1000) as distance
+         from (
+                  select w.ORDER_ID, cla, cln, e.LNG as sln, e.LAT as sla
+                  from (
+                           select q.ORDER_ID, cz, sz, g.LAT as cla, g.LNG as cln
+                           from (select tmp.ORDER_ID, tmp.cz, s.ZIPCODE as sz
+                                 from (select o.ORDER_ID, o.SELLER_ID, c.ZIPCODE as cz
+                                       from ORDERS o
+                                                inner join USERS c on c.USER_ID = o.CUSTOMER_ID) tmp
+                                          inner join USERS s on s.USER_ID = tmp.SELLER_ID) q
+                                    inner join GEOLOCATION g on q.cz = g.ZIPCODE) w
+                           inner join GEOLOCATION e on e.ZIPCODE = sz)
+     ) upper
+         inner join ORDERS lower on upper.ORDER_ID = lower.ORDER_ID
+order by unitprice
+

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>HomePage</title>
+</head>
+
+<body>
+<h1>3080-project</h1><br>
+
+<button type="button" id="clear"> clear</button>
+<br>
+<button type="button" id="save"> save as csv</button>
+
+
+<form id="query1Form" method="post">
+    <table>
+        <tr>
+            <td>minPrice</td>
+            <td>maxPrice</td>
+            <td>startDate</td>
+            <td>endData</td>
+        </tr>
+
+        <tr>
+            <td><label>
+                <input type="text" name="minPrice">
+            </label></td>
+            <td><label>
+                <input type="text" name="maxPrice">
+            </label></td>
+            <td><label>
+                <input type="date" name="startDate"/>
+            </label></td>
+            <td><label>
+                <input type="date" name="endDate"/>
+            </label></td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type="button" id="query1"> query</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div id="query1Result"></div>
+
+<br><br>
+<form id="query2Form" method="post">
+    <table>
+        <tr>
+            <td>startDate</td>
+            <td>endData</td>
+        </tr>
+
+        <tr>
+            <td><label>
+                <input type="date" name="startDate"/>
+            </label></td>
+            <td><label>
+                <input type="date" name="endDate"/>
+            </label></td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type="button" id="query2"> query</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div id="query2Result"></div>
+
+
+<br><br>
+<form id="query3Form" method="post">
+    <table>
+        <tr>
+            <td>startDate</td>
+            <td>endData</td>
+        </tr>
+
+        <tr>
+            <td><label>
+                <input type="date" name="startDate"/>
+            </label></td>
+            <td><label>
+                <input type="date" name="endDate"/>
+            </label></td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type="button" id="query3"> query</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div id="query3Result"></div>
+
+<br><br>
+<form id="query4Form" method="post">
+    <table>
+        <tr>
+            <td>startDate</td>
+            <td>endData</td>
+        </tr>
+
+        <tr>
+            <td><label>
+                <input type="date" name="startDate"/>
+            </label></td>
+            <td><label>
+                <input type="date" name="endDate"/>
+            </label></td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type="button" id="query4"> query</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div id="query4Result"></div>
+
+
+<br><br>
+<form id="query5Form" method="post">
+    <table>
+        <tr>
+            <td>number</td>
+        </tr>
+
+        <tr>
+            <td><label>
+                <input type="number" name="number"/>
+            </label></td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type="button" id="query5"> query</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div id="query5Result"></div>
+
+<br><br>
+<form id="query6Form" method="post">
+    <table>
+        <tr>
+            <td>zipCode</td>
+        </tr>
+
+        <tr>
+            <td><label>
+                <input type="number" name="zipCode"/>
+            </label></td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type="button" id="query6"> query</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div id="query6Result"></div>
+
+
+<br><br>
+<form id="query7Form" method="post">
+    <table>
+        <tr>
+            <td>number</td>
+        </tr>
+
+        <tr>
+            <td><label>
+                <input type="number" name="number"/>
+            </label></td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type="button" id="query7"> query</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div id="query7Result"></div>
+
+
+<br><br>
+<form id="query8Form" method="post">
+    <table>
+        <tr>
+            <td>number</td>
+        </tr>
+
+        <tr>
+            <td><label>
+                <input type="number" name="number"/>
+            </label></td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type="button" id="query8"> query</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div id="query8Result"></div>
+
+<br><br>
+<form id="query9Form" method="post">
+    <table>
+        <tr>
+            <td>number</td>
+        </tr>
+
+        <tr>
+            <td><label>
+                <input type="number" name="number"/>
+            </label></td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type="button" id="query9"> query</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div id="query9Result"></div>
+
+
+<br><br>
+<form id="query0Form" method="post">
+    <table>
+        <tr>
+            <td>number</td>
+        </tr>
+
+        <tr>
+            <td><label>
+                <input type="number" name="number"/>
+            </label></td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type="button" id="query0"> query</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<div id="query0Result"></div>
+
+
+<script type="text/javascript">
+    let parse;
+    let dl;
+
+    const saveButton = document.getElementById("save");
+
+    saveButton.onclick = function () {
+        saveFile();
+    }
+
+    const clearButton = document.getElementById("clear");
+    clearButton.onclick = function () {
+        parse = null;
+        location.reload();
+    }
+
+    const query1Button = document.getElementById("query1");
+    query1Button.onclick = function () {
+        query1();
+    }
+
+
+    const query2Button = document.getElementById("query2");
+    query2Button.onclick = function () {
+        query2();
+    }
+
+
+    const query3Button = document.getElementById("query3");
+    query3Button.onclick = function () {
+        query3();
+    }
+
+
+    const query4Button = document.getElementById("query4");
+    query4Button.onclick = function () {
+        query4();
+    }
+
+
+    const query5Button = document.getElementById("query5");
+    query5Button.onclick = function () {
+        query5();
+    }
+
+
+    const query6Button = document.getElementById("query6");
+    query6Button.onclick = function () {
+        query6();
+    }
+
+
+    const query7Button = document.getElementById("query7");
+    query7Button.onclick = function () {
+        query7();
+    }
+
+
+    const query8Button = document.getElementById("query8");
+    query8Button.onclick = function () {
+        query8();
+    }
+
+
+    const query9Button = document.getElementById("query9");
+    query9Button.onclick = function () {
+        query9();
+    }
+
+
+    const query0Button = document.getElementById("query0");
+    query0Button.onclick = function () {
+        query0();
+    }
+
+    function saveFile() {
+        var elementA = document.createElement('a');
+        elementA.download = +new Date() + ".csv";
+        elementA.style.display = 'none';
+        dl = dl.replaceAll('<table style=\"width:100%\">','').replaceAll('</table>','').replaceAll('<tr>','').replaceAll('</tr>','\n').replaceAll('</td><td>',',').replaceAll('<td>','').replaceAll('</td>','')
+        var blob = new Blob([dl]);
+        elementA.href = URL.createObjectURL(blob);
+        document.body.appendChild(elementA);
+        elementA.click();
+        document.body.removeChild(elementA);
+        dl=null
+    }
+
+    function query1() {
+        const formData = document.getElementById("query1Form");
+        const elementsByTagName = formData.getElementsByTagName('input');
+        const minPrice = elementsByTagName[0].value;
+        const maxPrice = elementsByTagName[1].value;
+        const startDate = elementsByTagName[2].value;
+        const endDate = elementsByTagName[3].value;
+
+        const body = "{\"minPrice\" : \"" + minPrice + "\", \"maxPrice\" : \"" + maxPrice + "\", \"startDate\": \"" + startDate + "\", \"endDate\" : \"" + endDate + "\"}";
+        myRequest().sendRequest("POST", "http://localhost:9000/query1", body)
+        setInterval(printQuery1, 1000)
+        elementsByTagName[0].value = ""
+        elementsByTagName[1].value = ""
+        elementsByTagName[2].value = ""
+        elementsByTagName[3].value = ""
+        // location.reload()
+    }
+
+
+    function printQuery1() {
+        if (parse != null) {
+            // var parseElement = JSON.parse(parse)["list"]
+            let tb = "<table style=\"width:100%\">";
+            tb += "<tr>"
+            tb += "<td>" + "orderId" + "</td><td>" + "price" + "</td><td>" + "order_purcahse_timestamp" + "</td>"
+            tb += "</tr>"
+            console.log(parse)
+
+            const parseElement = JSON.parse(parse);
+            for (const i in parseElement) {
+                tb += "<tr>"
+                tb += "<td>" + parseElement[i]["order_id"] + "</td><td>" + parseElement[i]["price"] + "</td><td>" + parseElement[i]["order_purchase_timestamp"] + "</td>"
+                tb += "</tr>"
+            }
+            tb += "</table>"
+            dl = tb
+            document.getElementById("query1Result").innerHTML = tb
+        }
+    }
+
+    function query2() {
+        const formData = document.getElementById("query2Form");
+        const elementsByTagName = formData.getElementsByTagName('input');
+
+        const startDate = elementsByTagName[0].value;
+        const endDate = elementsByTagName[1].value;
+
+        const body = "{\"startDate\": \"" + startDate + "\", \"endDate\" : \"" + endDate + "\"}";
+        myRequest().sendRequest("POST", "http://localhost:9000/query2", body)
+        setInterval(printQuery2, 1000)
+        elementsByTagName[0].value = ""
+        elementsByTagName[1].value = ""
+        // location.reload()
+    }
+
+    function printQuery2() {
+        if (parse != null) {
+            // var parseElement = JSON.parse(parse)["list"]
+            let tb = "<table style=\"width:100%\">";
+            tb += "<tr>"
+            tb += "<td>" + "customerId" + "</td><td>" + "cost" + "</td><td>" + "cityZipcode" + "</td>"
+            tb += "</tr>"
+            console.log(parse)
+
+            const parseElement = JSON.parse(parse);
+            for (const i in parseElement) {
+                tb += "<tr>"
+                tb += "<td>" + parseElement[i]["customerId"] + "</td><td>" + parseElement[i]["cost"] + "</td><td>" + parseElement[i]["cityZipcode"] + "</td>"
+                tb += "</tr>"
+            }
+            tb += "</table>"
+            dl = tb
+            document.getElementById("query2Result").innerHTML = tb
+        }
+    }
+
+
+    function query3() {
+        const formData = document.getElementById("query3Form");
+        const elementsByTagName = formData.getElementsByTagName('input');
+
+        const startDate = elementsByTagName[0].value;
+        const endDate = elementsByTagName[1].value;
+
+        const body = "{\"startDate\": \"" + startDate + "\", \"endDate\" : \"" + endDate + "\"}";
+        myRequest().sendRequest("POST", "http://localhost:9000/query3", body)
+        setInterval(printQuery3, 1000)
+        elementsByTagName[0].value = ""
+        elementsByTagName[1].value = ""
+        // location.reload()
+    }
+
+    function printQuery3() {
+        if (parse != null) {
+            // var parseElement = JSON.parse(parse)["list"]
+            let tb = "<table style=\"width:100%\">";
+            tb += "<tr>"
+            tb += "<td>" + "customerId" + "</td><td>" + "cost" + "</td><td>" + "cityZipcode" + "</td>"
+            tb += "</tr>"
+            console.log(parse)
+
+            const parseElement = JSON.parse(parse);
+            for (const i in parseElement) {
+                tb += "<tr>"
+                tb += "<td>" + parseElement[i]["customerId"] + "</td><td>" + parseElement[i]["cost"] + "</td><td>" + parseElement[i]["cityZipcode"] + "</td>"
+                tb += "</tr>"
+            }
+            tb += "</table>"
+            dl = tb
+            document.getElementById("query3Result").innerHTML = tb
+        }
+    }
+
+
+    function query4() {
+        const formData = document.getElementById("query4Form");
+        const elementsByTagName = formData.getElementsByTagName('input');
+
+        const startDate = elementsByTagName[0].value;
+        const endDate = elementsByTagName[1].value;
+
+        const body = "{\"startDate\": \"" + startDate + "\", \"endDate\" : \"" + endDate + "\"}";
+        myRequest().sendRequest("POST", "http://localhost:9000/query4", body)
+        setInterval(printQuery4, 1000)
+        elementsByTagName[0].value = ""
+        elementsByTagName[1].value = ""
+        // location.reload()
+    }
+
+    function printQuery4() {
+        if (parse != null) {
+            // var parseElement = JSON.parse(parse)["list"]
+            let tb = "<table style=\"width:100%\">";
+            tb += "<tr>"
+            tb += "<td>" + "income" + "</td><td>" + "cost" + "</td><td>" + "cityZipcode" + "</td>"
+            tb += "</tr>"
+            console.log(parse)
+
+            const parseElement = JSON.parse(parse);
+            for (const i in parseElement) {
+                tb += "<tr>"
+                tb += "<td>" + parseElement[i]["income"] + "</td><td>" + parseElement[i]["cost"] + "</td><td>" + parseElement[i]["cityZipcode"] + "</td>"
+                tb += "</tr>"
+            }
+            tb += "</table>"
+            dl = tb
+            document.getElementById("query4Result").innerHTML = tb
+        }
+    }
+
+
+    function query5() {
+        const formData = document.getElementById("query5Form");
+        const elementsByTagName = formData.getElementsByTagName('input');
+
+        const num = elementsByTagName[0].value;
+
+        const body = "{\"num\": \"" + num + "\"}";
+        myRequest().sendRequest("POST", "http://localhost:9000/query5", body)
+        setInterval(printQuery5, 1000)
+        elementsByTagName[0].value = ""
+        // location.reload()
+    }
+
+    function printQuery5() {
+        if (parse != null) {
+            // var parseElement = JSON.parse(parse)["list"]
+            let tb = "<table style=\"width:100%\">";
+            tb += "<tr>"
+            tb += "<td>" + "category" + "</td><td>" + "num" + "</td>"
+            tb += "</tr>"
+            console.log(parse)
+
+            const parseElement = JSON.parse(parse);
+            for (const i in parseElement) {
+                tb += "<tr>"
+                tb += "<td>" + parseElement[i]["category"] + "</td><td>" + parseElement[i]["num"] + "</td>"
+                tb += "</tr>"
+            }
+            tb += "</table>"
+            dl = tb
+            document.getElementById("query5Result").innerHTML = tb
+        }
+    }
+
+    function query6() {
+        const formData = document.getElementById("query6Form");
+        const elementsByTagName = formData.getElementsByTagName('input');
+
+        const zipcode = elementsByTagName[0].value;
+
+        const body = "{\"zipcode\": \"" + zipcode + "\"}";
+        myRequest().sendRequest("POST", "http://localhost:9000/query6", body)
+        setInterval(printQuery6, 1000)
+        elementsByTagName[0].value = ""
+        // location.reload()
+    }
+
+    function printQuery6() {
+        if (parse != null) {
+            // var parseElement = JSON.parse(parse)["list"]
+            let tb = "<table style=\"width:100%\">";
+            tb += "<tr>"
+            tb += "<td>" + "rate" + "</td><td>" + "sellerId" + "</td><td>" + "cityZipcode" + "</td>"
+            tb += "</tr>"
+            console.log(parse)
+
+            const parseElement = JSON.parse(parse);
+            for (const i in parseElement) {
+                tb += "<tr>"
+                tb += "<td>" + parseElement[i]["rate"] + "</td><td>" + parseElement[i]["sellerId"] + "</td><td>" + parseElement[i]["cityZipcode"] + "</td>"
+                tb += "</tr>"
+            }
+            tb += "</table>"
+            dl = tb
+            document.getElementById("query6Result").innerHTML = tb
+        }
+    }
+
+    function query7() {
+        const formData = document.getElementById("query7Form");
+        const elementsByTagName = formData.getElementsByTagName('input');
+
+        const num = elementsByTagName[0].value;
+
+        const body = "{\"num\": \"" + num + "\"}";
+        myRequest().sendRequest("POST", "http://localhost:9000/query7", body)
+        setInterval(printQuery7, 1000)
+        elementsByTagName[0].value = ""
+        // location.reload()
+    }
+
+    function printQuery7() {
+        if (parse != null) {
+            // var parseElement = JSON.parse(parse)["list"]
+            let tb = "<table style=\"width:100%\">";
+            tb += "<tr>"
+            tb += "<td>" + "productId" + "</td><td>" + "name" + "</td><td>" + "num" + "</td>"
+            tb += "</tr>"
+            console.log(parse)
+
+            const parseElement = JSON.parse(parse);
+            for (const i in parseElement) {
+                tb += "<tr>"
+                tb += "<td>" + parseElement[i]["productId"] + "</td><td>" + parseElement[i]["name"] + "</td><td>" + parseElement[i]["num"] + "</td>"
+                tb += "</tr>"
+            }
+            tb += "</table>"
+            dl = tb
+            document.getElementById("query7Result").innerHTML = tb
+        }
+    }
+
+    function query8() {
+        const formData = document.getElementById("query8Form");
+        const elementsByTagName = formData.getElementsByTagName('input');
+
+        const num = elementsByTagName[0].value;
+
+        const body = "{\"num\": \"" + num + "\"}";
+        myRequest().sendRequest("POST", "http://localhost:9000/query8", body)
+        setInterval(printQuery8, 1000)
+        elementsByTagName[0].value = ""
+        // location.reload()
+    }
+
+    function printQuery8() {
+        if (parse != null) {
+            // var parseElement = JSON.parse(parse)["list"]
+            let tb = "<table style=\"width:100%\">";
+            tb += "<tr>"
+            tb += "<td>" + "category" + "</td><td>" + "num" + "</td>"
+            tb += "</tr>"
+            console.log(parse)
+
+            const parseElement = JSON.parse(parse);
+            for (const i in parseElement) {
+                tb += "<tr>"
+                tb += "<td>" + parseElement[i]["category"] + "</td><td>" + parseElement[i]["num"] + "</td>"
+                tb += "</tr>"
+            }
+            tb += "</table>"
+            dl = tb
+            document.getElementById("query8Result").innerHTML = tb
+        }
+    }
+
+
+    function query9() {
+        const formData = document.getElementById("query9Form");
+        const elementsByTagName = formData.getElementsByTagName('input');
+
+        const num = elementsByTagName[0].value;
+
+        const body = "{\"num\": \"" + num + "\"}";
+        myRequest().sendRequest("POST", "http://localhost:9000/query9", body)
+        setInterval(printQuery9, 1000)
+        elementsByTagName[0].value = ""
+        // location.reload()
+    }
+
+    function printQuery9() {
+        if (parse != null) {
+            // var parseElement = JSON.parse(parse)["list"]
+            let tb = "<table style=\"width:100%\">";
+            tb += "<tr>"
+            tb += "<td>" + "sellerId" + "</td><td>" + "num" + "</td>"
+            tb += "</tr>"
+            console.log(parse)
+
+            const parseElement = JSON.parse(parse);
+            for (const i in parseElement) {
+                tb += "<tr>"
+                tb += "<td>" + parseElement[i]["sellerId"] + "</td><td>" + parseElement[i]["num"] + "</td>"
+                tb += "</tr>"
+            }
+            tb += "</table>"
+            dl=tb
+            document.getElementById("query9Result").innerHTML = tb
+        }
+    }
+
+
+    function query0() {
+        const formData = document.getElementById("query0Form");
+        const elementsByTagName = formData.getElementsByTagName('input');
+
+        const num = elementsByTagName[0].value;
+
+        const body = "{\"num\": \"" + num + "\"}";
+        myRequest().sendRequest("POST", "http://localhost:9000/query0", body)
+        setInterval(printQuery0, 1000)
+        elementsByTagName[0].value = ""
+        // location.reload()
+    }
+
+    function printQuery0() {
+        if (parse != null) {
+            // var parseElement = JSON.parse(parse)["list"]
+            let tb = "<table style=\"width:100%\">";
+            tb += "<tr>"
+            tb += "<td>" + "orderId" + "</td><td>" + "distance" + "</td><td>" + "cost" + "</td><td>" + "unit_price" + "</td>"
+            tb += "</tr>"
+            console.log(parse)
+
+            const parseElement = JSON.parse(parse);
+            for (const i in parseElement) {
+                tb += "<tr>"
+                tb += "<td>" + parseElement[i]["orderId"] + "</td><td>" + parseElement[i]["distance"] + "</td><td>" + parseElement[i]["cost"] + "</td><td>" + parseElement[i]["unitPrice"] + "</td>"
+                tb += "</tr>"
+            }
+            tb += "</table>"
+            dl = tb
+            document.getElementById("query0Result").innerHTML = tb
+        }
+    }
+
+    function myRequest() {
+        const xhr = new XMLHttpRequest();
+        return {
+            sendRequest: function (method, url, data) {
+                xhr.open(method, url, true)
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+                const allResponseHeaders = xhr.getAllResponseHeaders();
+                console.log(allResponseHeaders)
+                xhr.send(data)
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        console.log(xhr.responseText)
+                        parse = xhr.responseText;
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
